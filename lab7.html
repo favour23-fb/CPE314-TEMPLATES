@@ -7,6 +7,25 @@
 <body>
     <button id="btn">Click Me</button>
     <input type="text" id="input" placeholder="Type here">
+
+    <p id="hoverBox" style="padding: 15px; background-color: lightgray;">Hover over me</p>
+
+    <p>Counter: <span id="counterValue">0</span></p>
+    <button id="counterBtn">Increment</button>
+
+    <form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <button type="submit">Submit</button>
+    </form>
+    <p id="emailMessage"></p>
+
+    <p id="timerText">This text will change in 5 seconds.</p>
+
+    <a href="https://example.com" id="preventLink">Click this link</a>
+
+    <p>Bassey Favour Anietie &mdash; 24/EG/CO/268</p>
+
     <script>
         document.getElementById("btn").addEventListener("click", function() {
             alert("Button clicked!");
@@ -14,6 +33,40 @@
 
         document.getElementById("input").addEventListener("keyup", function(event) {
             console.log("Key pressed: " + event.key);
+        });
+
+        let hoverBox = document.getElementById("hoverBox");
+        hoverBox.addEventListener("mouseover", function() {
+            hoverBox.style.backgroundColor = "lightblue";
+        });
+        hoverBox.addEventListener("mouseout", function() {
+            hoverBox.style.backgroundColor = "lightgray";
+        });
+
+        let count = 0;
+        document.getElementById("counterBtn").addEventListener("click", function() {
+            count++;
+            document.getElementById("counterValue").textContent = count;
+        });
+
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("emailMessage");
+            if (email.includes("@")) {
+                message.textContent = "Valid email format.";
+            } else {
+                message.textContent = "Email must contain '@'.";
+            }
+        });
+
+        setTimeout(function() {
+            document.getElementById("timerText").textContent = "5 seconds have passed!";
+        }, 5000);
+
+        document.getElementById("preventLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("Link click prevented from navigating.");
         });
     </script>
 </body>
