@@ -1,32 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Advanced HTML</title>
 </head>
+
 <body>
+
     <header>
         <h1>Student Profile</h1>
+        <nav>
+            <a href="#profile">Profile</a> |
+            <a href="#form">Contact Form</a>
+        </nav>
     </header>
-    <section>
-        <img src="https://via.placeholder.com/150" alt="Profile Picture">
-        <table border="1">
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Major</th>
-            </tr>
-            <tr>
-                <td>John Doe</td>
-                <td>21</td>
-                <td>Computer Science</td>
-            </tr>
-        </table>
+
+    <section id="profile">
+        <article>
+            <img src="https://via.placeholder.com/150" alt="Profile Picture">
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Major</th>
+                </tr>
+                <tr>
+                    <td>Bassey Favour Anietie</td>
+                    <td>20</td>
+                    <td>Computer Engineering</td>
+                </tr>
+                <tr>
+                    <td>Mary Johnson</td>
+                    <td>22</td>
+                    <td>Electrical Engineering</td>
+                </tr>
+                <tr>
+                    <td>David Okon</td>
+                    <td>21</td>
+                    <td>Mechanical Engineering</td>
+                </tr>
+                <tr>
+                    <td>Grace Udo</td>
+                    <td>23</td>
+                    <td>Civil Engineering</td>
+                </tr>
+            </table>
+        </article>
     </section>
-    <form>
+
+    <form id="form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"><br>
+
+        <p>Gender:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+
+        <input type="checkbox" id="subscribe" name="subscribe">
+        <label for="subscribe">Subscribe to newsletter</label><br>
+
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="40"></textarea><br>
+
         <input type="submit" value="Submit">
     </form>
+
+    <footer>
+        <p>Bassey Favour Anietie &mdash; 24/EG/CO/268</p>
+    </footer>
+
 </body>
+
 </html>
