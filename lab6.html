@@ -7,9 +7,64 @@
 <body>
     <h1 id="title">Original Title</h1>
     <button onclick="changeTitle()">Change Title</button>
+
+    <p id="colorPara">This paragraph will change color.</p>
+    <button onclick="changeParaColor()">Change Paragraph Color</button>
+
+    <ul id="itemList">
+        <li>First Item</li>
+        <li>Second Item</li>
+    </ul>
+    <button onclick="addListItem()">Add List Item</button>
+
+    <div class="toggle-box">This box can be hidden or shown.</div>
+    <button onclick="toggleVisibility()">Toggle Visibility</button>
+
+    <label for="userInput">Enter something:</label>
+    <input type="text" id="userInput">
+    <button onclick="showInput()">Show Input</button>
+    <div id="inputDisplay"></div>
+
+    <button onclick="triggerError()">Try Non-Existent Element</button>
+
+    <p>Bassey Favour Anietie &mdash; 24/EG/CO/268</p>
+
     <script>
         function changeTitle() {
             document.getElementById("title").innerHTML = "New Title!";
+        }
+
+        function changeParaColor() {
+            document.getElementById("colorPara").style.color = "blue";
+        }
+
+        function addListItem() {
+            let newItem = document.createElement("li");
+            newItem.textContent = "New Item " + (document.getElementById("itemList").children.length + 1);
+            document.getElementById("itemList").appendChild(newItem);
+        }
+
+        function toggleVisibility() {
+            let box = document.querySelector(".toggle-box");
+            if (box.style.display === "none") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        function showInput() {
+            let value = document.getElementById("userInput").value;
+            document.getElementById("inputDisplay").textContent = value;
+        }
+
+        function triggerError() {
+            try {
+                let missing = document.getElementById("doesNotExist");
+                missing.innerHTML = "This will fail";
+            } catch (error) {
+                console.log("Error: element not found - " + error.message);
+            }
         }
     </script>
 </body>
